@@ -1,8 +1,11 @@
 import request from '@/utils/request'
 
 export function login(data) {
+  data.grant_type = 'password'
+  data.client_id = '2'
+  data.client_secret = 'IExDPe3FVeD3sXk60GZ08JFssTyiI0OZjmnmh52j'
   return request({
-    url: '/vue-admin-template/user/login',
+    url: '/login',
     method: 'post',
     data
   })
@@ -10,7 +13,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/vue-admin-template/user/info',
+    url: '/admins/me',
     method: 'get',
     params: { token }
   })
